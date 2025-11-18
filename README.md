@@ -61,6 +61,40 @@ This repository contains R scripts for analyzing morphometric and genetic data f
 
 ---
 
+### 4. `04_ploidy_analysis.R`
+**Purpose:** Creates boxplots and frequency plots for ploidy data from seeds and leaves.
+
+**What it does:**
+- Reads ploidy data from seeds (embryo and endosperm) and leaves
+- Calculates ploidy frequencies per species
+- Creates frequency plots with point sizes proportional to frequency
+- Generates index plots for embryo and endosperm (using Carex and Pisum standards)
+- Combines all plots into a multi-panel figure
+
+**Key outputs:**
+- `fcm_fccs_plots.pdf`: Multi-panel figure with 8 plots showing ploidy frequencies and indices
+
+**Author:** Soňa Píšová
+
+---
+
+### 5. `05_genetic_triplot.R`
+**Purpose:** Creates a ternary plot showing admixture proportions of three Crataegus species.
+
+**What it does:**
+- Reads SSR admixture proportions (C. monogyna, C. laevigata, C. rhipidophylla)
+- Transforms ternary coordinates to Cartesian coordinates
+- Creates ternary plot with grid lines and percentage labels
+- Colors and shapes points based on genetic groups
+- Adds legend with group descriptions
+
+**Key outputs:**
+- `triplot.pdf`: Ternary plot showing admixture proportions
+
+**Author:** Soňa Píšová
+
+---
+
 ## Required Input Files
 
 All scripts require input files to be in the same directory as the scripts. See `INPUT_FILES_REQUIRED.md` for a detailed list.
@@ -73,6 +107,8 @@ All scripts require input files to be in the same directory as the scripts. See 
 - **Script 01:** `Hybrid_Zones_LM_fl.tps`, `Hybrid_Zones_LM_sh.tps`, `fruits_avg.tsv`
 - **Script 02:** `Hybrid_Zones_LM_fl_procrustes.tsv`, `Hybrid_Zones_LM_sh_procrustes.tsv`, `all_measured_fruits.tsv`, `completed_morphology.tsv`
 - **Script 03:** `Crataegus_ssr_data_sp_clones_removed_dosage_restored.gdv`
+- **Script 04:** `Crataegus_seed_FCCS.xlsx`, `Crataegus_leaf_FCM.xlsx`
+- **Script 05:** `Crataegus_ssr_triplot.csv`
 
 ---
 
@@ -84,7 +120,8 @@ Install the following R packages before running the scripts:
 
 ```r
 install.packages(c("tidyverse", "geomorph", "ggrepel", "abind", "here", 
-                   "ggnewscale", "ggpubr", "FactoMineR", "scales", "MASS"))
+                   "ggnewscale", "ggpubr", "FactoMineR", "scales", "MASS",
+                   "readxl", "cowplot", "ggplot2"))
 install.packages("BiocManager")
 BiocManager::install("Morpho")
 install.packages("devtools")
@@ -114,6 +151,8 @@ Each script can be run independently:
 Rscript 01_relative_warp_analysis.R
 Rscript 02_canonical_discriminant_analysis.R
 Rscript 03_genetic_pcoa_analysis.R
+Rscript 04_ploidy_analysis.R
+Rscript 05_genetic_triplot.R
 ```
 
 Or from R/RStudio:
@@ -122,6 +161,8 @@ Or from R/RStudio:
 source("01_relative_warp_analysis.R")
 source("02_canonical_discriminant_analysis.R")
 source("03_genetic_pcoa_analysis.R")
+source("04_ploidy_analysis.R")
+source("05_genetic_triplot.R")
 ```
 
 ### Running All Scripts
@@ -132,6 +173,8 @@ To run all analyses in sequence:
 Rscript 01_relative_warp_analysis.R
 Rscript 02_canonical_discriminant_analysis.R
 Rscript 03_genetic_pcoa_analysis.R
+Rscript 04_ploidy_analysis.R
+Rscript 05_genetic_triplot.R
 ```
 
 ---
@@ -196,9 +239,11 @@ If you use these scripts in your research, please cite:
 
 ---
 
-## Author
+## Authors
 
-Roman Ufimov  
+**Scripts 01-03:** Roman Ufimov  
+**Scripts 04-05:** Soňa Píšová  
+
 July 2025
 
 ---
@@ -206,4 +251,3 @@ July 2025
 ## License
 
 These scripts are provided as-is for reproducibility purposes. Please cite appropriately if used in research.
-
