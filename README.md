@@ -97,8 +97,6 @@ This repository contains R scripts for analyzing morphometric and genetic data f
 
 ## Required Input Files
 
-All scripts require input files to be in the same directory as the scripts. See `INPUT_FILES_REQUIRED.md` for a detailed list.
-
 **Essential files:**
 - `reassign.tsv`: Admixture and species assignment table (required by all scripts)
   - Must contain columns: `Name`, `SSRs.group_new`, `species`, `L`, `M`, `R`
@@ -195,11 +193,13 @@ All scripts are designed to be portable and will:
 
 ### PDF Files
 All plots are saved as PDF files (as per user preference). Main outputs include:
-- Morphospace plots
-- CDA plots
-- Loadings plots
-- TPS deformation grids
-- Genetic PCoA plots
+- Morphospace plots (Relative Warp analysis)
+- CDA plots (Canonical Discriminant Analysis)
+- Loadings plots (CDA variable contributions)
+- TPS deformation grids (shape differences)
+- Genetic PCoA plots (Principal Coordinates Analysis)
+- Ploidy frequency and index plots 
+- Genetic triplot 
 
 ### CSV Files
 - CDA loadings tables for each dataset
@@ -211,7 +211,7 @@ All plots are saved as PDF files (as per user preference). Main outputs include:
 
 ## Notes
 
-1. **Ploidy and Repeat Units (Script 03):** The ploidy and repeat unit vectors are hardcoded and must match your GenoDive file structure. Adjust these if your data differs.
+1. **Ploidy and Repeat Units (Script 03):** The ploidy and repeat unit vectors are hardcoded and must match your GenoDive file structure. 
 
 2. **Excluded Samples:** Several samples are excluded from analyses (e.g., "L101", "HMAC611", etc.). These are hardcoded in the scripts.
 
