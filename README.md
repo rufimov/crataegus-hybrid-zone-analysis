@@ -192,7 +192,7 @@ All plots are saved as PDF files (as per user preference). Main outputs include:
 
 If you use these scripts in your research, please cite:
 - The relevant R packages (see script headers)
-- This repository (if published)
+- This repository
 
 ---
 
